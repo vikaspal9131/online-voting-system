@@ -1,15 +1,14 @@
 import React from 'react';
-
-import ElectionHistoryTable from './components/Election/ElectionHistory';
-import RegistrationForm from './pages/Register';
-import LoginForm from './pages/Login';
+import OTPVerification from './components/Election/OtpVerification';
 
 const App = () => {
+
   return (
     <div className="container mx-auto px-4">
-      <LoginForm/>
+      
+      <OTPVerification />
     </div>
- );
+  );
 };
 
 export default App;
