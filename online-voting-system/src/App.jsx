@@ -1,15 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import TopNavigation from './components/Layout/Navbar';
+import Card from './components/Election/ElectionCard';
+
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <TopNavigation />
-        {/* Your routes */}
-      </div>
-    </Router>
+    <div className="App flex justify-center items-center h-screen">
+    <Card />
+  </div>
   );
 };
 
