@@ -8,6 +8,8 @@ function App() {
       <div className="flex">
         <SideNavbar />
 
+        <h1>vikas pal</h1>
+
       </div>
  
 
