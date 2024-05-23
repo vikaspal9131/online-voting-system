@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Import Link
 
 const ElectionCards = () => {
   const elections = [
@@ -11,7 +12,8 @@ const ElectionCards = () => {
       time: '09:00 AM - 05:00 PM',
       location: 'National Hall',
       image: 'https://via.placeholder.com/150', // Placeholder image URL
-      description: 'The Presidential Election to elect the next leader of our country.'
+      description: 'The Presidential Election to elect the next leader of our country.',
+      voteLink: '/vote/1' // Link to vote page for this election
     },
     {
       id: 2,
@@ -20,15 +22,8 @@ const ElectionCards = () => {
       time: '08:00 AM - 03:00 PM',
       location: 'City Center',
       image: 'https://via.placeholder.com/150', // Placeholder image URL
-      description: 'Local elections for city officials and representatives.'
-    },{
-      id: 3,
-      title: 'Local Election',
-      date: '2024-08-15',
-      time: '08:00 AM - 03:00 PM',
-      location: 'City Center',
-      image: 'https://via.placeholder.com/150', // Placeholder image URL
-      description: 'Local elections for city officials and representatives.'
+      description: 'Local elections for city officials and representatives.',
+      voteLink: '/vote/2' // Link to vote page for this election
     },
     // Add more elections here
   ];
@@ -60,6 +55,8 @@ const ElectionCards = () => {
               <FaMapMarkerAlt className="mr-2" />
               <span>{election.location}</span>
             </div>
+            {/* Use Link component for the vote button */}
+            <Link to={election.voteLink} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md inline-block">Vote</Link>
           </motion.div>
         ))}
       </div>
