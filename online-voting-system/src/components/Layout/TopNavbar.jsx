@@ -9,7 +9,7 @@ const TopNavbar = () => {
       <div className="flex items-center">
         {/* Use Link component for the button */}
         <Link to="/create-election" className="bg-blue-500 text-white py-1 px-4 rounded mr-4 hover:bg-blue-600">Create New</Link>
-        <FaUserCircle size={30} />
+        <Link to="/profile/view" ><FaUserCircle size={30} /></Link>
       </div>
     </div>
   );

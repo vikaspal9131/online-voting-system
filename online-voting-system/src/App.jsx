@@ -12,6 +12,7 @@ import Registration from './pages/Register';
 import Login from './pages/Login';
 import ResetPassword from './pages/ResetPassword';
 import ForgotPassword from './pages/ForgotPassword';
+import ViewProfile from './components/Profile/ViewProfile';
 
 const App = () => {
   return (
@@ -29,6 +30,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/profile/view" element={<ViewProfile/>} />
+          
         </Routes>
       </div>
     </Router>
