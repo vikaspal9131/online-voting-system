@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import ElectionHistoryTable from './components/Election/ElectionHistory';
 import RegistrationForm from './pages/Register';
 import LoginForm from './pages/Login';
@@ -14,6 +15,18 @@ const App = () => {
     <div className="container mx-auto px-4">
       <LoginForm/>
     </div>
+=======
+import { BrowserRouter as Router } from 'react-router-dom';
+import TopNavigation from './components/Layout/Navbar';
+import Card from './components/Election/ElectionCard';
+
+
+const App = () => {
+  return (
+    <div className="App flex justify-center items-center h-screen">
+    <Card />
+  </div>
+>>>>>>> 2166e1f132a3b446be75e4f29880bf777d3d61e2
   );
 };
 
