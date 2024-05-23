@@ -1,13 +1,11 @@
 import React from 'react';
-import VotersCRUD from './components/Election/VotersCRUD';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
-
   return (
-    <div className="container mx-auto px-4">
-      
-      <VotersCRUD />
-    </div>
+    <div >
+    <Dashboard />
+  </div>
   );
 };
 
