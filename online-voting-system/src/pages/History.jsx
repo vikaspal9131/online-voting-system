@@ -3,6 +3,7 @@ import React from 'react';
 import Sidebar from '../components/Layout/Sidebar';
 import TopNavbar from '../components/Layout/TopNavbar';
 import ElectionHistory from '../components/Election/ElectionHistory';
+import Layout from '../components/Layout/BasicLayout';
 
 const HistoryPage = () => {
   // Dummy data to simulate election history
@@ -34,19 +35,10 @@ const HistoryPage = () => {
   ];
 
   return (
-    <div className="flex">
-        <Sidebar />
-        <div className="flex-1 pl-64">
-          <TopNavbar />
-          
-
-    
-   
-
+    <Layout>
           <h2 className="text-2xl font-semibold mb-4">Election History</h2>
           <ElectionHistory elections={elections} />
-        </div>
-      </div>
+          </Layout>
   
   );
 };

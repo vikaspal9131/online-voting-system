@@ -1,44 +1,37 @@
+// OtpVerificationPopup.jsx
 import React, { useState } from 'react';
 
-const OTPVerification = () => {
-  const [otp, setOTP] = useState('');
-  const [error, setError] = useState('');
+const OtpVerificationPopup = ({ isOpen, onClose, onVerify }) => {
+  const [otp, setOtp] = useState('');
 
-  const handleChange = (e) => {
-    setOTP(e.target.value);
+  if (!isOpen) return null;
+
+  const handleOtpChange = (e) => {
+    setOtp(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (otp === '1234') { // Replace '1234' with the actual OTP to verify
-      // OTP is correct, add your logic here (e.g., navigate to the next step)
-      console.log('OTP verified successfully');
-    } else {
-      setError('Invalid OTP. Please try again.');
-    }
+  const handleVerify = () => {
+    onVerify(otp);
   };
 
   return (
-    <div className="max-w-md mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">OTP Verification</h2>
-      {error && <div className="text-red-500 mb-4">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="otp" className="block text-sm font-medium text-gray-700">Enter OTP</label>
-          <input
-            type="text"
-            id="otp"
-            name="otp"
-            value={otp}
-            onChange={handleChange}
-            className="mt-1 p-2 border rounded-md w-full"
-            required
-          />
+    <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+      <div className="bg-white p-4 rounded shadow-md">
+        <h2 className="text-xl font-semibold mb-4">OTP Verification</h2>
+        <p>Please enter the OTP sent to your registered number:</p>
+        <input
+          type="text"
+          value={otp}
+          onChange={handleOtpChange}
+          className="mt-2 p-2 border rounded w-full"
+        />
+        <div className="flex justify-end mt-4">
+          <button onClick={onClose} className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-md mr-2">Cancel</button>
+          <button onClick={handleVerify} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Verify</button>
         </div>
-        <button type="submit" className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">Verify OTP</button>
-      </form>
+      </div>
     </div>
   );
 };
 
-export default OTPVerification;
+export default OtpVerificationPopup;

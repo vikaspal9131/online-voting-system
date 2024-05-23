@@ -12,7 +12,7 @@ const ElectionHistory = () => {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-semibold mb-4">Election History</h2>
-      <table className="min-w-full bg-white border border-gray-200">
+      <table className="bg-white border border-gray-200">
         <thead>
           <tr>
             <th className="px-4 py-2 border-b">Title</th>

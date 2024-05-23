@@ -3,6 +3,7 @@ import React from 'react';
 import Sidebar from '../components/Layout/Sidebar';
 import TopNavbar from '../components/Layout/TopNavbar';
 import ElectionCards from '../components/Election/ElectionCard';
+import Layout from '../components/Layout/BasicLayout';
 
 const Elections = () => {
   // Dummy data to simulate elections
@@ -90,13 +91,9 @@ const Elections = () => {
 
   
     return (
-      <div className="flex">
-        <Sidebar />
-        <div className="flex-1 pl-64">
-          <TopNavbar />
+      <Layout>
           <ElectionCards elections={elections} maxVisible={elections.length} />
-        </div>
-      </div>
+      </Layout>  
     );
   };
 

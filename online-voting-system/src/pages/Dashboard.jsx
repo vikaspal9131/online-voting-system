@@ -3,6 +3,7 @@ import Sidebar from '../components/Layout/Sidebar';
 import TopNavbar from '../components/Layout/TopNavbar';
 import ElectionCards from '../components/Election/ElectionCard';
 import ElectionHistory from '../components/Election/ElectionHistory';
+import Layout from '../components/Layout/BasicLayout';
 
 const Dashboard = () => {
   const elections = [
@@ -87,17 +88,10 @@ const Dashboard = () => {
     // Add more elections here
   ];
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="flex-1 pl-64"> {/* Add left padding to accommodate the sidebar */}
-      <h2 className="text-2xl font-semibold mb-4">Ongoing Election</h2>
-        <TopNavbar />
-        <div className="p-4 space-y-8">
+    <Layout>
         <ElectionCards elections={elections} maxVisible={3} />
           <ElectionHistory />
-        </div>
-      </div>
-    </div>
+          </Layout>
   );
 };
 
