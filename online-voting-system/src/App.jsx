@@ -1,14 +1,16 @@
 import React from 'react';
-import Sidebar from './components/Layout/Sidebar';
+import { BrowserRouter as Router } from 'react-router-dom';
+import TopNavigation from './components/Layout/Navbar';
 
-
-
-function App() {
+const App = () => {
   return (
-      <div className="flex">
-        <Sidebar />
+    <Router>
+      <div>
+        <TopNavigation />
+        {/* Your routes */}
       </div>
+    </Router>
   );
-}
+};
 
 export default App;
