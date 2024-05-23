@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Dashboard from './pages/Dashboard';
 import CreateElection from './components/Election/CreateElection';
+import ElectionList from './pages/Election';
+import HistoryPage from './pages/History';
 
 const App = () => {
   return (
@@ -11,8 +13,10 @@ const App = () => {
       <div className="flex">   
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/home" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/create-election" element={<CreateElection />} />
+          <Route path="/elections" element={<ElectionList />} />
+          <Route path="/history" element={<HistoryPage />} />
         </Routes>
       </div>
     </Router>

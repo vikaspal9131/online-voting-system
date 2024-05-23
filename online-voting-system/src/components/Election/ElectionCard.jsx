@@ -1,38 +1,14 @@
+// ElectionCards.jsx
 import React from 'react';
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 
-const ElectionCards = () => {
-  const elections = [
-    {
-      id: 1,
-      title: 'Presidential Election',
-      date: '2024-11-05',
-      time: '09:00 AM - 05:00 PM',
-      location: 'National Hall',
-      image: 'https://via.placeholder.com/150', // Placeholder image URL
-      description: 'The Presidential Election to elect the next leader of our country.',
-      voteLink: '/vote/1' // Link to vote page for this election
-    },
-    {
-      id: 2,
-      title: 'Local Election',
-      date: '2024-08-15',
-      time: '08:00 AM - 03:00 PM',
-      location: 'City Center',
-      image: 'https://via.placeholder.com/150', // Placeholder image URL
-      description: 'Local elections for city officials and representatives.',
-      voteLink: '/vote/2' // Link to vote page for this election
-    },
-    // Add more elections here
-  ];
-
+const ElectionCards = ({ elections, maxVisible }) => {
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Ongoing Election</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {elections.map(election => (
+        {elections.slice(0, maxVisible).map(election => (
           <motion.div
             key={election.id}
             className="bg-cyan-100 p-4 rounded shadow-md transition transform hover:-translate-y-1 hover:shadow-lg"
@@ -55,7 +31,6 @@ const ElectionCards = () => {
               <FaMapMarkerAlt className="mr-2" />
               <span>{election.location}</span>
             </div>
-            {/* Use Link component for the vote button */}
             <Link to={election.voteLink} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md inline-block">Vote</Link>
           </motion.div>
         ))}
