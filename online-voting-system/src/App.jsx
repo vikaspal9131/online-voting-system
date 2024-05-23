@@ -1,18 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import SideNavbar from './components/Layout/Sidebar';
+import Sidebar from './components/Layout/Sidebar';
+
 
 
 function App() {
   return (
       <div className="flex">
-        <SideNavbar />
 
+<Sidebar />
         <h1>vikas pal</h1>
 
       </div>
- 
-
   );
 }
 
