@@ -1,44 +1,42 @@
-// src/App.jsx
-
+// ElectionCards.jsx
 import React from 'react';
+import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const App = () => {
-  const cards = [
-    {
-      id: 1,
-      title: 'Card 1',
-      description: 'Description for Card 1',
-      author: 'Author 1'
-    },
-    {
-      id: 2,
-      title: 'Card 2',
-      description: 'Description for Card 2',
-      author: 'Author 2'
-    },
-    {
-      id: 3,
-      title: 'Card 3',
-      description: 'Description for Card 3',
-      author: 'Author 3'
-    }
-  ];
-
+const ElectionCards = ({ elections, maxVisible }) => {
   return (
-    <div className="App flex justify-center items-center h-screen ">
-      {cards.map(card => (
-        <div key={card.id} className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden mr-7">
-          <div className="px-4 py-2">
-            <h2 className="text-gray-800 text-lg font-semibold">{card.title}</h2>
-            <p className="text-gray-600 mt-1">{card.description}</p>
-          </div>
-          <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
-            <p className="text-gray-200">{card.author}</p>
-            <a href="#" className="text-white">Read More</a>
-          </div>
-        </div>
-      ))}
+    <div className="p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {elections.slice(0, maxVisible).map(election => (
+          <motion.div
+            key={election.id}
+            className="bg-cyan-100 p-4 rounded shadow-md transition transform hover:-translate-y-1 hover:shadow-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img src={election.image} alt={election.title} className="w-full h-32 object-cover rounded-t-md" />
+            <h2 className="text-xl font-semibold mb-2 mt-2">{election.title}</h2>
+            <p className="text-gray-700 mb-2">{election.description}</p>
+            <div className="flex items-center text-gray-600 mb-2">
+              <FaCalendarAlt className="mr-2" />
+              <span>{election.date}</span>
+            </div>
+            <div className="flex items-center text-gray-600 mb-2">
+              <FaClock className="mr-2" />
+              <span>{election.time}</span>
+            </div>
+            <div className="flex items-center text-gray-600 mb-2">
+              <FaMapMarkerAlt className="mr-2" />
+              <span>{election.location}</span>
+            </div>
+            <Link to={election.voteLink} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md inline-block">Vote</Link>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };
-export default App;
+
+export default ElectionCards;
