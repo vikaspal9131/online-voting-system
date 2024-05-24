@@ -1,12 +1,11 @@
 import React from 'react';
-import VotersCRUD from './components/Election/VotersCRUD';
+
+import RegistrationForm from './pages/Register';
 
 const App = () => {
-
   return (
-    <div className="container mx-auto px-4">
-      
-      <VotersCRUD />
+    <div className="min-h-screen bg-blue-200 flex items-center justify-center">
+      <RegistrationForm />
     </div>
   );
 };
